@@ -19,11 +19,9 @@ Future<Response> onRequest(RequestContext context) async {
           case 'request_menu':
             channel.sink.add(menuCubit.state);
             break;
-          case 'update_menu':
-            final menu = (data['menu'] as List<dynamic>)
-                .map((item) => Item.fromJson(item as Map<String, dynamic>))
-                .toList();
-            menuCubit.update(menu);
+          case 'update_item':
+            final item = Item.fromJson(data['item'] as Map<String, dynamic>);
+            menuCubit.updateItem(item);
             break;
           default:
             break;

@@ -7,7 +7,7 @@ part 'item.g.dart';
 
 @JsonSerializable()
 
-/// Item model for an API providing to access broker
+/// Item model for dish
 class Item extends Equatable {
   /// {macro Item}
   Item({

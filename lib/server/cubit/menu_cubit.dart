@@ -17,5 +17,14 @@ class MenuCubit extends BroadcastCubit<String> {
     emit(jsonEncode(menu));
   }
 
-  void update(List<Item> menu) => emit(jsonEncode(menu));
+  void updateItem(Item item) {
+    final menu = (jsonDecode(state) as List<dynamic>)
+        .map((item) => Item.fromJson(item as Map<String, dynamic>))
+        .toList();
+    final index = menu.indexWhere((item_) => item_.id == item.id);
+    if (index != -1) {
+      menu[index] = item;
+      emit(jsonEncode(menu));
+    }
+  }
 }
