@@ -14,6 +14,7 @@ class Item extends Equatable {
     String? id,
     required this.name,
     required this.price,
+    required this.inStock,
   })  : assert(
           id == null || id.isNotEmpty,
           'id can not be null and should be empty',
@@ -21,8 +22,13 @@ class Item extends Equatable {
         id = id ?? const Uuid().v4();
 
   final String id;
+
   final String name;
+
   final double price;
+
+  @JsonKey(name: 'in_stock')
+  final bool inStock;
 
   /// Deserializes the given [JsonMap] into a [Item].
   static Item fromJson(JsonMap json) {
@@ -37,14 +43,16 @@ class Item extends Equatable {
     String? id,
     String? name,
     double? price,
+    bool? inStock,
   }) {
     return Item(
       id: id ?? this.id,
       name: name ?? this.name,
       price: price ?? this.price,
+      inStock: inStock ?? this.inStock,
     );
   }
 
   @override
-  List<Object?> get props => [id, name, price];
+  List<Object?> get props => [id, name, price, inStock];
 }
