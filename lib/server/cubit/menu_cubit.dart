@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:broadcast_bloc/broadcast_bloc.dart';
-import 'package:pos_server/menu/menu.dart';
+import 'package:pos_server/server/server.dart';
 
 class MenuCubit extends BroadcastCubit<String> {
   // Create an instance with an initial state of 0.
