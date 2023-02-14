@@ -5,6 +5,6 @@ import 'package:pos_server/server/server.dart';
 final _menu = MenuCubit()..initial();
 final menuProvider = provider<MenuCubit>((_) => _menu);
 
-/// Provide the kitchen instance via `RequestContext`.
-final _kitchen = KitchenCubit();
-final kitchenProvider = provider<KitchenCubit>((_) => _kitchen);
+/// Provide the order instance via `RequestContext`.
+final _order = OrderCubit();
+final orderProvider = provider<OrderCubit>((_) => _order);

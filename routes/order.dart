@@ -6,20 +6,16 @@ import 'package:pos_server/server/server.dart';
 
 Future<Response> onRequest(RequestContext context) async {
   final handler = webSocketHandler((channel, protocol) {
-    // final kitchenCubit = context.read<KitchenCubit>();
-    final menuCubit = context.read<MenuCubit>()..subscribe(channel);
+    final orderCubit = context.read<OrderCubit>()..subscribe(channel);
 
     // Listen for messages from the client.
     channel.stream.listen(
       (event) {
         final data = jsonDecode(event as String) as Map<String, dynamic>;
         switch (data['type']) {
-          case 'request_menu':
-            channel.sink.add(menuCubit.state);
-            break;
-          case 'update_item':
-            final item = Item.fromJson(data['item'] as Map<String, dynamic>);
-            menuCubit.updateItem(item);
+          case 'place_order':
+            final order = Order.fromJson(data['order'] as Map<String, dynamic>);
+            orderCubit.placeOrder(order);
             break;
           default:
             break;
