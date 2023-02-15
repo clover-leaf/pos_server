@@ -11,6 +11,7 @@ Dish _$DishFromJson(Map<String, dynamic> json) => Dish(
       categoryId: json['category_id'] as String,
       name: json['name'] as String,
       price: (json['price'] as num).toDouble(),
+      description: json['description'] as String,
     );
 
 Map<String, dynamic> _$DishToJson(Dish instance) => <String, dynamic>{
@@ -18,4 +19,5 @@ Map<String, dynamic> _$DishToJson(Dish instance) => <String, dynamic>{
       'category_id': instance.categoryId,
       'name': instance.name,
       'price': instance.price,
+      'description': instance.description,
     };
