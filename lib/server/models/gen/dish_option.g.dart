@@ -22,6 +22,6 @@ Map<String, dynamic> _$DishOptionToJson(DishOption instance) =>
     };
 
 const _$OptionTypeEnumMap = {
-  OptionType.onlyChoice: 'onlyChoice',
+  OptionType.singleChoice: 'singleChoice',
   OptionType.multiChoice: 'multiChoice',
 };

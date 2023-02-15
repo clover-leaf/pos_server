@@ -1,13 +1,19 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pos_server/server/models/typedef.dart';
+import 'package:pos_server/server/server.dart';
 import 'package:uuid/uuid.dart';
 
 part 'gen/dish_option.g.dart';
 
 enum OptionType {
-  onlyChoice,
+  singleChoice,
   multiChoice,
+}
+
+extension OptionTypeX on OptionType {
+  bool isSingleChoice() => this == OptionType.singleChoice;
+  bool isMultiChoice() => this == OptionType.multiChoice;
 }
 
 @JsonSerializable()

@@ -20,11 +20,16 @@ Future<Response> onRequest(RequestContext context) async {
       name: 'Steamed Rice',
       categoryId: cSideDish.id,
       price: 3.75,
+      description:
+          'Steamed grain rice never sticks together after boiling, it also '
+          'remains the same tasty and crisp, even after re-heating meals.',
     );
     final dFrenchFries = Dish(
       name: 'French Fries',
       categoryId: cSideDish.id,
       price: 3.5,
+      description: 'They aren’t just incredibly delicious, they’re also 100%'
+          ' vegan without chemicals, toxic preservatives or other nasties. ',
     );
 
     final doSteamedRiceSize = DishOption(
