@@ -35,7 +35,7 @@ Future<Response> onRequest(RequestContext context) async {
     final doSteamedRiceSize = DishOption(
       dishId: dSteamedRice.id,
       name: 'Size',
-      type: OptionType.onlyChoice,
+      type: OptionType.singleChoice,
     );
     final doSteamedRiceIngridients = DishOption(
       dishId: dSteamedRice.id,
@@ -46,6 +46,7 @@ Future<Response> onRequest(RequestContext context) async {
     final oSteamedRiceSizeSmall = Option(
       dishOptionId: doSteamedRiceSize.id,
       name: 'Small',
+      additionalCharge: 0,
     );
     final oSteamedRiceSizeMedium = Option(
       dishOptionId: doSteamedRiceSize.id,
@@ -58,16 +59,31 @@ Future<Response> onRequest(RequestContext context) async {
       additionalCharge: 10,
     );
 
-    final oSteamedRiceIngridientsSpicy =
-        Option(dishOptionId: doSteamedRiceIngridients.id, name: 'Spicy');
-    final oSteamedRiceIngridientsSauce =
-        Option(dishOptionId: doSteamedRiceIngridients.id, name: 'Sauce');
-    final oSteamedRiceIngridientsSpecial =
-        Option(dishOptionId: doSteamedRiceIngridients.id, name: 'Special');
-    final oSteamedRiceIngridientsBread =
-        Option(dishOptionId: doSteamedRiceIngridients.id, name: 'Bread');
-    final oSteamedRiceIngridientsGalic =
-        Option(dishOptionId: doSteamedRiceIngridients.id, name: 'Galic');
+    final oSteamedRiceIngridientsSpicy = Option(
+      dishOptionId: doSteamedRiceIngridients.id,
+      name: 'Spicy',
+      additionalCharge: 0,
+    );
+    final oSteamedRiceIngridientsSauce = Option(
+      dishOptionId: doSteamedRiceIngridients.id,
+      name: 'Sauce',
+      additionalCharge: 0,
+    );
+    final oSteamedRiceIngridientsSpecial = Option(
+      dishOptionId: doSteamedRiceIngridients.id,
+      name: 'Special',
+      additionalCharge: 0,
+    );
+    final oSteamedRiceIngridientsBread = Option(
+      dishOptionId: doSteamedRiceIngridients.id,
+      name: 'Bread',
+      additionalCharge: 0,
+    );
+    final oSteamedRiceIngridientsGalic = Option(
+      dishOptionId: doSteamedRiceIngridients.id,
+      name: 'Galic',
+      additionalCharge: 0,
+    );
 
     // insert data
     await supabase.from('category').insert([

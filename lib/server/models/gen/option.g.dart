@@ -10,7 +10,7 @@ Option _$OptionFromJson(Map<String, dynamic> json) => Option(
       id: json['id'] as String?,
       dishOptionId: json['dish_option_id'] as String,
       name: json['name'] as String,
-      additionalCharge: (json['additional_charge'] as num?)?.toDouble(),
+      additionalCharge: (json['additional_charge'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$OptionToJson(Option instance) => <String, dynamic>{

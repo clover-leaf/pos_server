@@ -12,7 +12,7 @@ class Option extends Equatable {
     String? id,
     required this.dishOptionId,
     required this.name,
-    this.additionalCharge,
+    required this.additionalCharge,
   })  : assert(
           id == null || id.isNotEmpty,
           'id can not be null and should be empty',
@@ -27,7 +27,7 @@ class Option extends Equatable {
   final String name;
 
   @JsonKey(name: 'additional_charge')
-  final double? additionalCharge;
+  final double additionalCharge;
 
   /// Deserializes the given [JsonMap] into a [Option].
   static Option fromJson(JsonMap json) {
