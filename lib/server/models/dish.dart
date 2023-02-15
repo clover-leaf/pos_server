@@ -3,18 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:pos_server/server/models/typedef.dart';
 import 'package:uuid/uuid.dart';
 
-part 'item.g.dart';
+part 'gen/dish.g.dart';
 
 @JsonSerializable()
-
-/// Item model for dish
-class Item extends Equatable {
-  /// {macro Item}
-  Item({
+class Dish extends Equatable {
+  /// {macro Dish}
+  Dish({
     String? id,
+    required this.categoryId,
     required this.name,
     required this.price,
-    required this.inStock,
   })  : assert(
           id == null || id.isNotEmpty,
           'id can not be null and should be empty',
@@ -23,36 +21,36 @@ class Item extends Equatable {
 
   final String id;
 
+  @JsonKey(name: 'category_id')
+  final String categoryId;
+
   final String name;
 
   final double price;
 
-  @JsonKey(name: 'in_stock')
-  final bool inStock;
-
-  /// Deserializes the given [JsonMap] into a [Item].
-  static Item fromJson(JsonMap json) {
-    return _$ItemFromJson(json);
+  /// Deserializes the given [JsonMap] into a [Dish].
+  static Dish fromJson(JsonMap json) {
+    return _$DishFromJson(json);
   }
 
-  /// Converts this [Item] into a [JsonMap].
-  JsonMap toJson() => _$ItemToJson(this);
+  /// Converts this [Dish] into a [JsonMap].
+  JsonMap toJson() => _$DishToJson(this);
 
-  /// Returns a copy of [Item] with given parameters
-  Item copyWith({
+  /// Returns a copy of [Dish] with given parameters
+  Dish copyWith({
     String? id,
+    String? categoryId,
     String? name,
     double? price,
-    bool? inStock,
   }) {
-    return Item(
+    return Dish(
       id: id ?? this.id,
+      categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
       price: price ?? this.price,
-      inStock: inStock ?? this.inStock,
     );
   }
 
   @override
-  List<Object?> get props => [id, name, price, inStock];
+  List<Object?> get props => [id, categoryId, name, price];
 }

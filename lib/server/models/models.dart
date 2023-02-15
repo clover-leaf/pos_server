@@ -1,4 +1,9 @@
-export 'item.dart';
+export 'category.dart';
+export 'dish.dart';
+export 'dish_option.dart';
 export 'message.dart';
+export 'option.dart';
 export 'order.dart';
+export 'order_dish.dart';
+export 'order_dish_option.dart';
 export 'typedef.dart';

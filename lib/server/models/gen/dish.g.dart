@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'item.dart';
+part of '../dish.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Item _$ItemFromJson(Map<String, dynamic> json) => Item(
+Dish _$DishFromJson(Map<String, dynamic> json) => Dish(
       id: json['id'] as String?,
+      categoryId: json['category_id'] as String,
       name: json['name'] as String,
       price: (json['price'] as num).toDouble(),
-      inStock: json['in_stock'] as bool,
     );
 
-Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
+Map<String, dynamic> _$DishToJson(Dish instance) => <String, dynamic>{
       'id': instance.id,
+      'category_id': instance.categoryId,
       'name': instance.name,
       'price': instance.price,
-      'in_stock': instance.inStock,
     };
