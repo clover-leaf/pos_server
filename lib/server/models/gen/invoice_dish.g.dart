@@ -1,21 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../order_dish.dart';
+part of '../invoice_dish.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-OrderDish _$OrderDishFromJson(Map<String, dynamic> json) => OrderDish(
+InvoiceDish _$InvoiceDishFromJson(Map<String, dynamic> json) => InvoiceDish(
       id: json['id'] as String?,
-      orderId: json['order_id'] as String,
+      invoiceId: json['invoice_id'] as String,
       dishId: json['dish_id'] as String,
       amount: json['amount'] as int,
     );
 
-Map<String, dynamic> _$OrderDishToJson(OrderDish instance) => <String, dynamic>{
+Map<String, dynamic> _$InvoiceDishToJson(InvoiceDish instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'order_id': instance.orderId,
+      'invoice_id': instance.invoiceId,
       'dish_id': instance.dishId,
       'amount': instance.amount,
     };

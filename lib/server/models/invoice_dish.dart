@@ -3,14 +3,14 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:pos_server/server/models/typedef.dart';
 import 'package:uuid/uuid.dart';
 
-part 'gen/order_dish.g.dart';
+part 'gen/invoice_dish.g.dart';
 
 @JsonSerializable()
-class OrderDish extends Equatable {
-  /// {macro OrderDish}
-  OrderDish({
+class InvoiceDish extends Equatable {
+  /// {macro InvoiceDish}
+  InvoiceDish({
     String? id,
-    required this.orderId,
+    required this.invoiceId,
     required this.dishId,
     required this.amount,
   })  : assert(
@@ -21,37 +21,37 @@ class OrderDish extends Equatable {
 
   final String id;
 
-  @JsonKey(name: 'order_id')
-  final String orderId;
+  @JsonKey(name: 'invoice_id')
+  final String invoiceId;
 
   @JsonKey(name: 'dish_id')
   final String dishId;
 
   final int amount;
 
-  /// Deserializes the given [JsonMap] into a [OrderDish].
-  static OrderDish fromJson(JsonMap json) {
-    return _$OrderDishFromJson(json);
+  /// Deserializes the given [JsonMap] into a [InvoiceDish].
+  static InvoiceDish fromJson(JsonMap json) {
+    return _$InvoiceDishFromJson(json);
   }
 
-  /// Converts this [OrderDish] into a [JsonMap].
-  JsonMap toJson() => _$OrderDishToJson(this);
+  /// Converts this [InvoiceDish] into a [JsonMap].
+  JsonMap toJson() => _$InvoiceDishToJson(this);
 
-  /// Returns a copy of [OrderDish] with given parameters
-  OrderDish copyWith({
+  /// Returns a copy of [InvoiceDish] with given parameters
+  InvoiceDish copyWith({
     String? id,
-    String? orderId,
+    String? invoiceId,
     String? dishId,
     int? amount,
   }) {
-    return OrderDish(
+    return InvoiceDish(
       id: id ?? this.id,
-      orderId: orderId ?? this.orderId,
+      invoiceId: invoiceId ?? this.invoiceId,
       dishId: dishId ?? this.dishId,
       amount: amount ?? this.amount,
     );
   }
 
   @override
-  List<Object?> get props => [id, orderId, dishId, amount];
+  List<Object?> get props => [id, invoiceId, dishId, amount];
 }

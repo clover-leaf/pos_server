@@ -3,9 +3,9 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:pos_server/server/models/typedef.dart';
 import 'package:uuid/uuid.dart';
 
-part 'gen/order.g.dart';
+part 'gen/invoice.g.dart';
 
-enum OrderStatus {
+enum InvoiceStatus {
   prepare,
   shipping,
   served,
@@ -13,9 +13,9 @@ enum OrderStatus {
 }
 
 @JsonSerializable()
-class Order extends Equatable {
-  /// {macro Order}
-  Order({
+class Invoice extends Equatable {
+  /// {macro Invoice}
+  Invoice({
     String? id,
     required this.tableId,
     required this.time,
@@ -32,21 +32,21 @@ class Order extends Equatable {
 
   final DateTime time;
 
-  /// Deserializes the given [JsonMap] into a [Order].
-  static Order fromJson(JsonMap json) {
-    return _$OrderFromJson(json);
+  /// Deserializes the given [JsonMap] into a [Invoice].
+  static Invoice fromJson(JsonMap json) {
+    return _$InvoiceFromJson(json);
   }
 
-  /// Converts this [Order] into a [JsonMap].
-  JsonMap toJson() => _$OrderToJson(this);
+  /// Converts this [Invoice] into a [JsonMap].
+  JsonMap toJson() => _$InvoiceToJson(this);
 
-  /// Returns a copy of [Order] with given parameters
-  Order copyWith({
+  /// Returns a copy of [Invoice] with given parameters
+  Invoice copyWith({
     String? id,
     int? tableId,
     DateTime? time,
   }) {
-    return Order(
+    return Invoice(
       id: id ?? this.id,
       tableId: tableId ?? this.tableId,
       time: time ?? this.time,

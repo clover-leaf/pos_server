@@ -6,9 +6,9 @@ import 'package:supabase/supabase.dart';
 final _menu = MenuCubit();
 final menuProvider = provider<MenuCubit>((_) => _menu);
 
-/// Provide the order instance via `RequestContext`.
-final _order = OrderCubit();
-final orderProvider = provider<OrderCubit>((_) => _order);
+// /// Provide the order instance via `RequestContext`.
+// final _order = OrderCubit();
+// final orderProvider = provider<OrderCubit>((_) => _order);
 
 /// Provide the Supabase Client instance via `RequestContext`.
 // ignore: lines_longer_than_80_chars
