@@ -31,5 +31,5 @@ Future<Response> onRequest(RequestContext context) async {
     );
   }
 
-  return Response(body: 'Error');
+  return Response(body: jsonEncode({'message': 'error'}));
 }
