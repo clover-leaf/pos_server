@@ -11,8 +11,9 @@ Future<Response> onRequest(RequestContext context) async {
   final method = request.method.value;
 
   if (method == HttpMethod.post.value) {
+    final orderCubit = context.read<OrderCubit>();
     final message = await request.body();
-    context.read<OrderCubit>().forwarrdOrder(message);
+    orderCubit.forwarrdOrder(message);
     return Response(body: jsonEncode({'message': 'success'}));
   }
 
