@@ -17,16 +17,10 @@ Future<Response> onRequest(RequestContext context) async {
         await supabase.from('category').select<List<Map<String, dynamic>>>();
     final dish =
         await supabase.from('dish').select<List<Map<String, dynamic>>>();
-    final dishOption =
-        await supabase.from('dish_option').select<List<Map<String, dynamic>>>();
-    final option =
-        await supabase.from('option').select<List<Map<String, dynamic>>>();
     return Response(
       body: jsonEncode({
         'category': category,
         'dish': dish,
-        'dish_option': dishOption,
-        'option': option,
       }),
     );
   }

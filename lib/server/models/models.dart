@@ -1,9 +1,6 @@
 export 'category.dart';
 export 'dish.dart';
-export 'dish_option.dart';
 export 'invoice.dart';
 export 'invoice_dish.dart';
-export 'invoice_dish_option.dart';
 export 'message.dart';
-export 'option.dart';
 export 'typedef.dart';

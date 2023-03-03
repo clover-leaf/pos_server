@@ -5,13 +5,6 @@ import 'package:uuid/uuid.dart';
 
 part 'gen/invoice.g.dart';
 
-enum InvoiceStatus {
-  prepare,
-  shipping,
-  served,
-  paid,
-}
-
 @JsonSerializable()
 class Invoice extends Equatable {
   /// {macro Invoice}

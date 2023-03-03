@@ -13,7 +13,7 @@ class Dish extends Equatable {
     required this.categoryId,
     required this.name,
     required this.price,
-    required this.description,
+    required this.url,
   })  : assert(
           id == null || id.isNotEmpty,
           'id can not be null and should be empty',
@@ -23,13 +23,13 @@ class Dish extends Equatable {
   final String id;
 
   @JsonKey(name: 'category_id')
-  final String categoryId;
+  final int categoryId;
 
   final String name;
 
   final double price;
 
-  final String description;
+  final String url;
 
   /// Deserializes the given [JsonMap] into a [Dish].
   static Dish fromJson(JsonMap json) {
@@ -42,20 +42,20 @@ class Dish extends Equatable {
   /// Returns a copy of [Dish] with given parameters
   Dish copyWith({
     String? id,
-    String? categoryId,
+    int? categoryId,
     String? name,
     double? price,
-    String? description,
+    String? url,
   }) {
     return Dish(
       id: id ?? this.id,
       categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
       price: price ?? this.price,
-      description: description ?? this.description,
+      url: url ?? this.url,
     );
   }
 
   @override
-  List<Object?> get props => [id, categoryId, name, price, description];
+  List<Object?> get props => [id, categoryId, name, price, url];
 }
