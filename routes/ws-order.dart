@@ -1,25 +1,18 @@
+// ignore_for_file: unnecessary_lambdas
+
 import 'package:dart_frog/dart_frog.dart';
 import 'package:dart_frog_web_socket/dart_frog_web_socket.dart';
-import 'package:pos_server/server/cubit/order_cubit.dart';
+import 'package:pos_server/pos_server.dart';
 
 Future<Response> onRequest(RequestContext context) async {
-  // this.channel doesn't need to listen its subscriber
   final handler = webSocketHandler((channel, protocol) {
-    context.read<OrderCubit>().subscribe(channel);
+    final cubit = context.read<OrderCubit>()..subscribe(channel);
     // Listen for messages from the client.
-    // channel.stream.listen(
-    //   (event) {
-    //     final data = jsonDecode(event as String) as Map<String, dynamic>;
-    //     switch (data['type']) {
-    //       case 'place_order':
-    //         final order = Order.fromJson(data['order'] as Map<String, dynamic>);
-    //         orderCubit.placeOrder(order);
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //   },
-    // );
+    channel.stream.listen(
+      (message) {
+        cubit.forwardMessage(message as String);
+      },
+    );
   });
 
   return handler(context);
