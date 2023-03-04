@@ -12,7 +12,7 @@ class InvoiceDish extends Equatable {
     String? id,
     required this.invoiceId,
     required this.dishId,
-    required this.amount,
+    required this.quantity,
   })  : assert(
           id == null || id.isNotEmpty,
           'id can not be null and should be empty',
@@ -27,7 +27,7 @@ class InvoiceDish extends Equatable {
   @JsonKey(name: 'dish_id')
   final String dishId;
 
-  final int amount;
+  final int quantity;
 
   /// Deserializes the given [JsonMap] into a [InvoiceDish].
   static InvoiceDish fromJson(JsonMap json) {
@@ -42,16 +42,16 @@ class InvoiceDish extends Equatable {
     String? id,
     String? invoiceId,
     String? dishId,
-    int? amount,
+    int? quantity,
   }) {
     return InvoiceDish(
       id: id ?? this.id,
       invoiceId: invoiceId ?? this.invoiceId,
       dishId: dishId ?? this.dishId,
-      amount: amount ?? this.amount,
+      quantity: quantity ?? this.quantity,
     );
   }
 
   @override
-  List<Object?> get props => [id, invoiceId, dishId, amount];
+  List<Object?> get props => [id, invoiceId, dishId, quantity];
 }

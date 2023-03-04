@@ -10,7 +10,7 @@ InvoiceDish _$InvoiceDishFromJson(Map<String, dynamic> json) => InvoiceDish(
       id: json['id'] as String?,
       invoiceId: json['invoice_id'] as String,
       dishId: json['dish_id'] as String,
-      amount: json['amount'] as int,
+      quantity: json['quantity'] as int,
     );
 
 Map<String, dynamic> _$InvoiceDishToJson(InvoiceDish instance) =>
@@ -18,5 +18,5 @@ Map<String, dynamic> _$InvoiceDishToJson(InvoiceDish instance) =>
       'id': instance.id,
       'invoice_id': instance.invoiceId,
       'dish_id': instance.dishId,
-      'amount': instance.amount,
+      'quantity': instance.quantity,
     };

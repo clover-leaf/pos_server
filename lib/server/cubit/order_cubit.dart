@@ -5,7 +5,6 @@ class OrderCubit extends BroadcastCubit<String> {
   OrderCubit() : super('');
 
   void forwardMessage(String message) {
-    print('emit');
     emit(message);
   }
 }
