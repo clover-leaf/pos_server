@@ -10,6 +10,10 @@ final menuProvider = provider<MenuCubit>((_) => _menu);
 final _order = OrderCubit();
 final orderProvider = provider<OrderCubit>((_) => _order);
 
+/// Provide the order instance via `RequestContext`.
+final _delivery = DeliveryCubit();
+final deliveryProvider = provider<DeliveryCubit>((_) => _delivery);
+
 /// Provide the Supabase Client instance via `RequestContext`.
 // ignore: lines_longer_than_80_chars
 final _supabase = SupabaseClient(
