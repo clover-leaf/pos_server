@@ -18,59 +18,73 @@ Future<Response> onRequest(RequestContext context) async {
     const c3 = Category(id: 3, name: 'Salads');
     const c4 = Category(id: 4, name: 'Drinks');
 
-    final d0 = Dish(
-      name: 'Bacon & Eggs',
-      categoryId: c0.id,
-      price: 5.49,
-      url:
-          'https://drive.google.com/file/d/1r43zXyYw5Y3_Ycx9kgE8EP8wIAb-Htz4/view?usp=sharing',
-    );
-    final d1 = Dish(
-      name: 'French fries',
-      categoryId: c1.id,
-      price: 1.99,
-      url:
-          'https://drive.google.com/file/d/1as9MGcWzr9jQIVdQRffJyU4YOAvUAk6X/view?usp=sharing',
-    );
-    final d2 = Dish(
-      name: 'Baked Lamb Chops',
-      categoryId: c2.id,
-      price: 15.99,
-      url:
-          'https://drive.google.com/file/d/1xJusbRJs5WRrueX7c62u1B4OWgsQsY64/view?usp=sharing',
-    );
-    final d3 = Dish(
-      name: 'Shrimp Salad',
-      categoryId: c3.id,
-      price: 7.99,
-      url:
-          'https://drive.google.com/file/d/1nxl5qWCPA5rHaj5d9yEwIRvGgwQsEs1S/view?usp=sharing',
-    );
+    final breakfastDishes = [
+      Dish(
+        name: 'Fluffy Pancakes',
+        categoryId: c0.id,
+        price: 6.99,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Berry Yogurt',
+        categoryId: c0.id,
+        price: 4.49,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Roasted Potato',
+        categoryId: c0.id,
+        price: 4.99,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Poppy Seed Muffins',
+        categoryId: c0.id,
+        price: 3.49,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Sandwiches',
+        categoryId: c0.id,
+        price: 4.99,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Roasted Potato',
+        categoryId: c0.id,
+        price: 4.99,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Pineapple Smoothie',
+        categoryId: c0.id,
+        price: 3.49,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'French Toast',
+        categoryId: c0.id,
+        price: 6.49,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+      Dish(
+        name: 'Omelet ',
+        categoryId: c0.id,
+        price: 3.59,
+        url:
+            'https://drive.google.com/uc?export=view&id=1sF2S6XACwPqDgxKQubE3Huwj7TDEPFUr',
+      ),
+    ];
 
-    final d4 = Dish(
-      name: 'Cappuccino',
-      categoryId: c4.id,
-      price: 3.99,
-      url:
-          'https://drive.google.com/file/d/1nPSfH_1C4AsABE_Xe2tP0LbYknyEim09/view?usp=sharing',
-    );
-
-    // insert data
-    await supabase.from('category').insert([
-      c0.toJson(),
-      c1.toJson(),
-      c2.toJson(),
-      c3.toJson(),
-      c4.toJson(),
-    ]);
-
-    await supabase.from('dish').insert([
-      d0.toJson(),
-      d1.toJson(),
-      d2.toJson(),
-      d3.toJson(),
-      d4.toJson(),
-    ]);
+    await supabase.from('dish').insert(breakfastDishes.map(toJson).toList());
 
     return Response(body: 'success');
   }
