@@ -6,18 +6,21 @@ import 'package:pos_server/pos_server.dart';
 
 Future<Response> onRequest(RequestContext context) async {
   final handler = webSocketHandler((channel, protocol) {
-    final deliveryCubit = context.read<DeliveryCubit>();
+    // final deliveryCubit = context.read<DeliveryCubit>();
     final orderCubit = context.read<OrderCubit>();
+    final espCubit = context.read<EspCubit>();
 
-    // Listen for messages from the client.
+    channel.sink.add('${espCubit.state}');
+
     channel.stream.listen(
-      (message) {
+      (_) {
         final message = {
           'type': Message.reviewOrder.value,
-          'invoice_dishes_id': deliveryCubit.state,
+          'table_id': espCubit.state
+          // 'invoice_dishes_id': deliveryCubit.state,
         };
         orderCubit.forwardMessage(jsonEncode(message));
-        deliveryCubit.reset();
+        // deliveryCubit.reset();
       },
     );
   });

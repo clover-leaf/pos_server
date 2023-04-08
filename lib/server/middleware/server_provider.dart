@@ -14,6 +14,9 @@ final orderProvider = provider<OrderCubit>((_) => _order);
 final _delivery = DeliveryCubit();
 final deliveryProvider = provider<DeliveryCubit>((_) => _delivery);
 
+final _esp = EspCubit();
+final espProvider = provider<EspCubit>((_) => _esp);
+
 /// Provide the Supabase Client instance via `RequestContext`.
 // ignore: lines_longer_than_80_chars
 final _supabase = SupabaseClient(

@@ -5,4 +5,5 @@ Handler middleware(Handler handler) => handler
     .use(orderProvider)
     .use(deliveryProvider)
     .use(supabaseProvider)
+    .use(espProvider)
     .use(requestLogger());
