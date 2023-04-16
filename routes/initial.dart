@@ -1,15 +1,15 @@
-import 'package:dart_frog/dart_frog.dart';
+import 'package:dart_frog/dart_frog.dart' as frog;
 import 'package:pos_server/server/server.dart';
 import 'package:supabase/supabase.dart';
 
-Future<Response> onRequest(RequestContext context) async {
+Future<frog.Response> onRequest(frog.RequestContext context) async {
   // Access the incoming request.
   final request = context.request;
 
   // Access the HTTP method.
   final method = request.method.value;
 
-  if (method == HttpMethod.get.value) {
+  if (method == frog.HttpMethod.get.value) {
     final supabase = context.read<SupabaseClient>();
 
     const c0 = Category(id: 0, name: 'Breakfast');
@@ -86,8 +86,8 @@ Future<Response> onRequest(RequestContext context) async {
 
     await supabase.from('dish').insert(breakfastDishes.map(toJson).toList());
 
-    return Response(body: 'success');
+    return frog.Response(body: 'success');
   }
 
-  return Response(body: 'Error');
+  return frog.Response(body: 'Error');
 }
