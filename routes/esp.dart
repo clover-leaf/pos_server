@@ -11,7 +11,7 @@ Future<Response> onRequest(RequestContext context) async {
     final espCubit = context.read<EspCubit>()..subscribe(channel);
 
     channel.stream.listen(
-      (_) {
+      (msg) {
         final message = {
           'type': Message.reviewOrder.value,
           'table_id': espCubit.state,
