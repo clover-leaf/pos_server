@@ -17,8 +17,8 @@ Future<Response> onRequest(RequestContext context) async {
         print(message);
         final data = jsonDecode(message as String) as Map<String, dynamic>;
         if (data['type'] == Message.deliveryOrder.value) {
-          espCubit.toTable("${data['table_id'] as int}");
-          // espCubit.toTable('d958b814');
+          // espCubit.toTable("${data['table_id'] as int}");
+          espCubit.toTable('d958b814');
           final rawIds = data['dishes_id'] as List<dynamic>;
           deliveryCubit.delivery(rawIds.map((e) => e as String).toList());
         }
