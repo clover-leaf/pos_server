@@ -15,11 +15,11 @@ Future<frog.Response> onRequest(frog.RequestContext context) async {
     final params = request.uri.queryParameters;
 
     final dishId = params['id']!;
-    final star = int.parse(params['star']!);
+    final rating = int.parse(params['rating']!);
 
     final supabase = context.read<SupabaseClient>();
 
-    await supabase.from('review').insert({'dish_id': dishId, 'star': star});
+    await supabase.from('review').insert({'dish_id': dishId, 'rating': rating});
     return frog.Response(
       body: jsonEncode({
         'status': 'success',

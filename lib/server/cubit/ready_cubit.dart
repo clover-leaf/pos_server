@@ -1,10 +1,10 @@
 import 'package:broadcast_bloc/broadcast_bloc.dart';
 
-class ReadyCubit extends BroadcastCubit<bool> {
+class ReadyCubit extends BroadcastCubit<int> {
   // Create an instance with an initial state of empty String.
-  ReadyCubit() : super(false);
+  ReadyCubit() : super(0);
 
-  void update({required bool isReady}) {
+  void update(int isReady) {
     emit(isReady);
   }
 }
