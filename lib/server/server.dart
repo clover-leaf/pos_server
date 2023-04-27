@@ -1,2 +1,2 @@
 export 'cubit/cubit.dart';
-export 'models/models.dart';
+export 'models/message.dart';

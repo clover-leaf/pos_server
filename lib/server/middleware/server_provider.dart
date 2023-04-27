@@ -14,6 +14,12 @@ final orderProvider = provider<OrderCubit>((_) => _order);
 final _delivery = DeliveryCubit();
 final deliveryProvider = provider<DeliveryCubit>((_) => _delivery);
 
+final _waiting = WaitingCubit();
+final waitingProvider = provider<WaitingCubit>((_) => _waiting);
+
+final _ready = ReadyCubit();
+final readyProvider = provider<ReadyCubit>((_) => _ready);
+
 final _esp = EspCubit();
 final espProvider = provider<EspCubit>((_) => _esp);
 

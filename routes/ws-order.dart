@@ -11,18 +11,20 @@ Future<Response> onRequest(RequestContext context) async {
     final deliveryCubit = context.read<DeliveryCubit>();
     final orderCubit = context.read<OrderCubit>()..subscribe(channel);
     final espCubit = context.read<EspCubit>();
+    final waitingCubit = context.read<WaitingCubit>();
 
     channel.stream.listen(
       (message) {
-        print(message);
         final data = jsonDecode(message as String) as Map<String, dynamic>;
         if (data['type'] == Message.deliveryOrder.value) {
+          waitingCubit.setWaitingMsg(message);
           // espCubit.toTable("${data['table_id'] as int}");
           espCubit.toTable('d958b814');
           final rawIds = data['dishes_id'] as List<dynamic>;
           deliveryCubit.delivery(rawIds.map((e) => e as String).toList());
+        } else {
+          orderCubit.forwardMessage(message);
         }
-        orderCubit.forwardMessage(message);
       },
     );
   });
